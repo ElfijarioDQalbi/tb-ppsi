@@ -79,7 +79,7 @@ $query   = $db->query("SELECT * FROM petugas");
                                     <tr>
                                         <td><?= $no++?></td>
                                         <td><?= $data['nip']; ?></td>
-                                        <td><?= $data['nama']; ?></td>
+                                        <td><?= $data['nama_petugas']; ?></td>
                                         <td><?= $data['email']; ?></td>
                                         <td><?= $data['no_hp']; ?></td>
                                         <td><?= $data['alamat']; ?></td>
