@@ -39,11 +39,11 @@
                 </a>
             </header>
 
-            <div class="page-heading">
+            <!-- <div class="page-heading">
                 <h3>Profile Statistics</h3>
-            </div>
+            </div> -->
 
-            <div class="page-content">
+            <!-- <div class="page-content">
                 <section class="row">
                     <div class="col-12 col-lg-9">
                         <div class="row">
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                 </section>
-            </div>
+            </div> -->
 
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
