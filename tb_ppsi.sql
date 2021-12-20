@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2021 at 10:51 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Waktu pembuatan: 20 Des 2021 pada 12.31
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mahasiswa`
+-- Struktur dari tabel `mahasiswa`
 --
 
 CREATE TABLE `mahasiswa` (
@@ -37,7 +37,7 @@ CREATE TABLE `mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `mahasiswa`
+-- Dumping data untuk tabel `mahasiswa`
 --
 
 INSERT INTO `mahasiswa` (`nim`, `nama`, `alamat`, `email`, `password`, `no_hp`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `alamat`, `email`, `password`, `no_hp`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengaduan`
+-- Struktur dari tabel `pengaduan`
 --
 
 CREATE TABLE `pengaduan` (
@@ -63,26 +63,22 @@ CREATE TABLE `pengaduan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengaduan`
+-- Dumping data untuk tabel `pengaduan`
 --
 
 INSERT INTO `pengaduan` (`id_pengaduan`, `tgl_pengaduan`, `nim`, `isi_pengaduan`, `foto`, `status`) VALUES
-(8, '2021-03-23', '359300972304', 'wifi lag', '230320210612wenakk.jpg', 'selesai'),
-(9, '2021-03-23', '359300972304', 'wifi lemot', '230320210241wenakk.jpg', 'selesai'),
-(10, '2021-03-23', '359300972304', '', 'noImage.png', 'selesai'),
-(11, '2021-12-13', '359300972304', 'pintu rusak', 'noImage.png', 'selesai'),
-(12, '2021-12-19', '359300972304', 'wifi mati dilantai 3', 'noImage.png', 'proses'),
-(13, '2021-12-19', '359300972304', 'wifi mati', 'noImage.png', 'proses');
+(14, '2021-12-20', '1911521021', 'wifi lemot', 'nol.png', 'proses'),
+(15, '2021-12-09', '1911521036', 'keran kamar mandi lt 2 rusak', 'nolImage.png', 'proses');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `petugas`
+-- Struktur dari tabel `petugas`
 --
 
 CREATE TABLE `petugas` (
   `nip` varchar(20) NOT NULL,
-  `nama` varchar(30) NOT NULL,
+  `nama_petugas` varchar(30) NOT NULL,
   `password` varchar(255) NOT NULL,
   `no_hp` varchar(13) NOT NULL,
   `level` enum('admin','petugas') NOT NULL,
@@ -91,10 +87,10 @@ CREATE TABLE `petugas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `petugas`
+-- Dumping data untuk tabel `petugas`
 --
 
-INSERT INTO `petugas` (`nip`, `nama`, `password`, `no_hp`, `level`, `alamat`, `email`) VALUES
+INSERT INTO `petugas` (`nip`, `nama_petugas`, `password`, `no_hp`, `level`, `alamat`, `email`) VALUES
 ('1241151616', 'Admin1', 'e00cf25ad42683b3df678c61f42c6bda', '08745863453', 'admin', 'Medan', 'admin1@gmail.com'),
 ('15136136173', 'Petugas1', 'b53fe7751b37e40ff34d012c7774d65f', '084567864857', 'petugas', 'Padang', 'petugas1@gmail.com'),
 ('86262724252', 'Petugas2', 'ac5604a8b8504d4ff5b842480df02e91', '08673452532', 'petugas', 'Pekanbaru', 'petugas2@gmail.com'),
@@ -104,7 +100,7 @@ INSERT INTO `petugas` (`nip`, `nama`, `password`, `no_hp`, `level`, `alamat`, `e
 -- --------------------------------------------------------
 
 --
--- Table structure for table `respon`
+-- Struktur dari tabel `respon`
 --
 
 CREATE TABLE `respon` (
@@ -116,61 +112,76 @@ CREATE TABLE `respon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `respon`
+-- Dumping data untuk tabel `respon`
 --
 
 INSERT INTO `respon` (`id_respon`, `id_pengaduan`, `tgl_respon`, `isi_respon`, `nip`) VALUES
-(1, 1, '2020-02-13', 'berarti awak nan punyo tu mah', '2'),
-(2, 4, '2021-03-22', 'indihome ngambek', '2'),
-(4, 6, '2021-03-22', 'tanya pln', '4'),
-(6, 8, '2021-03-23', 'kabel fiber bermasalah', '7'),
-(7, 9, '2021-03-23', 'hubungi telkom', '7'),
-(8, 10, '2021-03-23', '', '7'),
-(9, 11, '2021-12-13', 'pintu akan segera diperbaiki', '7');
+(10, 14, '2021-12-21', 'petugas indihome akan datang', '86262724252'),
+(11, 15, '2021-12-20', 'akan diperbaiki', '15136136173');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `mahasiswa`
+-- Indeks untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`nim`);
 
 --
--- Indexes for table `pengaduan`
+-- Indeks untuk tabel `pengaduan`
 --
 ALTER TABLE `pengaduan`
-  ADD PRIMARY KEY (`id_pengaduan`);
+  ADD PRIMARY KEY (`id_pengaduan`),
+  ADD KEY `nim` (`nim`);
 
 --
--- Indexes for table `petugas`
+-- Indeks untuk tabel `petugas`
 --
 ALTER TABLE `petugas`
   ADD PRIMARY KEY (`nip`);
 
 --
--- Indexes for table `respon`
+-- Indeks untuk tabel `respon`
 --
 ALTER TABLE `respon`
-  ADD PRIMARY KEY (`id_respon`);
+  ADD PRIMARY KEY (`id_respon`),
+  ADD KEY `id_pengaduan` (`id_pengaduan`),
+  ADD KEY `nip` (`nip`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `pengaduan`
+-- AUTO_INCREMENT untuk tabel `pengaduan`
 --
 ALTER TABLE `pengaduan`
-  MODIFY `id_pengaduan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_pengaduan` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `respon`
+-- AUTO_INCREMENT untuk tabel `respon`
 --
 ALTER TABLE `respon`
-  MODIFY `id_respon` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_respon` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `pengaduan`
+--
+ALTER TABLE `pengaduan`
+  ADD CONSTRAINT `pengaduan_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `respon`
+--
+ALTER TABLE `respon`
+  ADD CONSTRAINT `respon_ibfk_1` FOREIGN KEY (`id_pengaduan`) REFERENCES `pengaduan` (`id_pengaduan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `respon_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `petugas` (`nip`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
