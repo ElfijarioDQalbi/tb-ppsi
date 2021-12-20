@@ -10,7 +10,7 @@ if (isset($_POST['submit'])){
     $email = $_POST['email'];
     $alamat = $_POST['alamat'];
 
-    $query = "INSERT INTO petugas (level,nama,password,no_hp,nip,email,alamat) 
+    $query = "INSERT INTO petugas (level,nama_petugas,password,no_hp,nip,email,alamat) 
     VALUES ('$level','$nama_ptg','$password_ptg','$notelp_ptg','$nip','$email','$alamat')";
     $result = mysqli_query($db,$query);
 

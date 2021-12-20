@@ -13,7 +13,7 @@ if (isset($_POST['submit'])){
 
 
     $query = "UPDATE petugas
-            SET nama = '$nama_ptg', 
+            SET nama_petugas = '$nama_ptg', 
             no_hp = '$notelp_ptg', 
             level = '$level',
             nip = '$nip',
@@ -93,7 +93,7 @@ if (isset($_POST['submit'])){
                                     <div class="col-12">
                                         <div class="form-group mb-3">
                                             <label for="nama_ptg" class="mb-1">Nama Lengkap</label>
-                                            <input type="text" id="nama_ptg" class="form-control" name="nama_ptg" value="<?= $data['nama']; ?>">
+                                            <input type="text" id="nama_ptg" class="form-control" name="nama_ptg" value="<?= $data['nama_petugas']; ?>">
                                         </div>
                                     </div>
                                     <div class="col-12">
