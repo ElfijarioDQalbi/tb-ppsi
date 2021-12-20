@@ -36,7 +36,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="" class='sidebar-link'>
+                        <a href="respon.php" class='sidebar-link'>
                             <i class="bi bi-calendar-week"></i>
                             <span>Respon pengaduan</span>
                         </a>

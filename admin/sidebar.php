@@ -46,13 +46,13 @@ if (isset($_SESSION['level'])=="admin" && !isset($_SESSION['email'])) {
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="" class='sidebar-link'>
+                        <a href="respon.php" class='sidebar-link'>
                             <i class="bi bi-calendar-week"></i>
                             <span>Kelola Respon</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="" class='sidebar-link'>
+                        <a href="laporan.php" class='sidebar-link'>
                             <i class="bi bi-calendar-week"></i>
                             <span>Laporan</span>
                         </a>
