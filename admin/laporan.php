@@ -48,10 +48,6 @@
                 </a>
             </header>
 
-            <div class="page-heading">
-            <a href="#name" class="col s3"> Welcome, <span class=""><?php echo ucwords($_SESSION['data']['nama_petugas']); ?></span></a>
-            </div>
-
             <div class="page-content">
                 <section class="row">
                     <div class="col-12 col-lg-12">
@@ -141,7 +137,7 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2021 &copy; BEM KM FTI UNAND</p>
+                        <p>2021 &copy; Fakultas Teknologi Informasi - Universitas Andalas</p>
                     </div>
                 </div>
             </footer>
