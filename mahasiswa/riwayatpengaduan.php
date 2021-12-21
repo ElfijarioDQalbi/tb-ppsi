@@ -63,7 +63,7 @@
 								<td>
 									<a class="btn btn-primary" href="#more?id_pengaduan=<?php echo $r['id_pengaduan'] ?>">Detail</a> 
 
-		<!-- ditanggapi -->
+		<!-- detail -->
 			<div id="more?id_pengaduan=<?php echo $r['id_pengaduan'] ?>" class="modal">
 			<div class="modal-content">
 				<h4 class="valign center">Detail</h4>
@@ -80,9 +80,9 @@
 						<img width="100" src="../img/<?php echo $r['foto']; ?>">
 					<?php }
 					?>
-					<br><b>Pesan</b>
+					<br><b>Pesan : </b>
 					<p><?php echo $r['isi_pengaduan']; ?></p>
-					<br><b>Respon</b>
+					<br><b>Respon : </b>
 					<p><?php echo $r['isi_respon']; ?></p>
 				</div>
 
@@ -91,7 +91,7 @@
 				<a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
 			</div>
         </div>
-		<!-- ditanggapi -->
+		<!-- detail -->
 
 							</tr>
 						<?php	}
