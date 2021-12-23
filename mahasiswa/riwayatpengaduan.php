@@ -51,12 +51,13 @@
 				</tr>
 				<?php 
 					$no=1;
-					$pengaduan = mysqli_query($koneksi,"SELECT * FROM pengaduan INNER JOIN mahasiswa ON pengaduan.nim=mahasiswa.nim INNER JOIN respon ON pengaduan.id_pengaduan=respon.id_pengaduan WHERE pengaduan.nim='".$_SESSION['data']['nim']."' ORDER BY pengaduan.id_pengaduan DESC");
+					// $pengaduan = mysqli_query($koneksi,"SELECT * FROM pengaduan INNER JOIN mahasiswa ON pengaduan.nim=mahasiswa.nim INNER JOIN respon ON pengaduan.id_pengaduan=respon.id_pengaduan WHERE pengaduan.nim='".$_SESSION['data']['nim']."' ORDER BY pengaduan.id_pengaduan DESC");
+					$pengaduan = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE pengaduan.nim='".$_SESSION['data']['nim']."'");
 					while ($r=mysqli_fetch_assoc($pengaduan)) { ?>
 					<tr>
 						<td><?php echo $no++; ?></td>
 						<td><?php echo $r['nim']; ?></td>
-						<td><?php echo $r['nama']; ?></td>
+						<!-- <td><?php echo $r['nama']; ?></td> -->
 						<td><?php echo $r['tgl_pengaduan']; ?></td>
 						<td><?php echo $r['status']; ?></td>
 						<td>
