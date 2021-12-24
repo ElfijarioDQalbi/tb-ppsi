@@ -39,18 +39,18 @@
                 </a>
             </header>
 
-            <!-- <div class="page-heading">
-                <h3>Profile Statistics</h3>
-            </div> -->
+            <div class="page-heading">
+                <h2>Sistem Informasi Pengaduan Mahasiswa Fakultas Teknologi Informasi</h2>
+            </div>
 
-            <!-- <div class="page-content">
+            <div class="page-content">
                 <section class="row">
                     <div class="col-12 col-lg-9">
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Profile Visit</h4>
+                                        <h3>Selamat Datang  <?php echo $_SESSION['data']['nama'] ?></h3>
                                     </div>
                                     <div class="card-body">
 
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                 </section>
-            </div> -->
+            </div>
 
             <footer>
                 <div class="footer clearfix mb-0 text-muted">

@@ -12,21 +12,31 @@
   <!DOCTYPE html>
   <html>
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Sistem Informasi BEM KM FTI</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin - Sistem Informasi BEM KM FTI</title>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../assets/css/bootstrap.css">
 
-    <link rel="stylesheet" href="../assets/vendors/iconly/bold.css">
+        <link rel="stylesheet" href="../assets/vendors/iconly/bold.css">
 
-    <link rel="stylesheet" href="../assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" href="../assets/vendors/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="../assets/css/app.css">
-    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/x-icon">
-      
+        <link rel="stylesheet" href="../assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+        <link rel="stylesheet" href="../assets/vendors/bootstrap-icons/bootstrap-icons.css">
+        <link rel="stylesheet" href="../assets/css/app.css">
+        <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/x-icon">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.modal');
+                var instances = M.Modal.init(elems);
+            });
+        </script>
     </head>
 
     <body>
@@ -38,38 +48,49 @@
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
-            <h1>Riwayat Pengaduan</h1>
 
-            <table class="responsive-table striped highlight">
-				<tr>
-					<td>No</td>
-					<td>NIM</td>
-					<td>Nama</td>
-					<td>Tanggal Masuk</td>
-					<td>Status</td>
-					<td>Opsi</td>
-				</tr>
-				<?php 
-					$no=1;
-					// $pengaduan = mysqli_query($koneksi,"SELECT * FROM pengaduan INNER JOIN mahasiswa ON pengaduan.nim=mahasiswa.nim INNER JOIN respon ON pengaduan.id_pengaduan=respon.id_pengaduan WHERE pengaduan.nim='".$_SESSION['data']['nim']."' ORDER BY pengaduan.id_pengaduan DESC");
-					$pengaduan = mysqli_query($koneksi, "SELECT * FROM pengaduan WHERE pengaduan.nim='".$_SESSION['data']['nim']."'");
-					while ($r=mysqli_fetch_assoc($pengaduan)) { ?>
-					<tr>
-						<td><?php echo $no++; ?></td>
-						<td><?php echo $r['nim']; ?></td>
-						<!-- <td><?php echo $r['nama']; ?></td> -->
-						<td><?php echo $r['tgl_pengaduan']; ?></td>
-						<td><?php echo $r['status']; ?></td>
-						<td>
-							<a class="btn blue modal-trigger" href="#responn&id_pengaduan=<?php echo $r['id_pengaduan'] ?>">Detail</a>
-
-<!-- ditanggapi -->
-        <div id="responn&id_pengaduan=<?php echo $r['id_pengaduan'] ?>" class="modal">
+            <div class="page-content">
+                <section class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Riwayat Pengaduan</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <table id="example" class="display responsive-table">
+                                            <thead>
+                                                <tr>
+												<td>No</td>
+												<td>Isi Laporan</td>
+												<td>Tanggal Masuk</td>
+												<td>Status</td>
+												<td>Opsi</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php 
+                                                    $no=1;
+													$pengaduan = mysqli_query($koneksi,"SELECT * FROM pengaduan INNER JOIN mahasiswa ON pengaduan.nim=mahasiswa.nim INNER JOIN respon ON pengaduan.id_pengaduan=respon.id_pengaduan WHERE pengaduan.nim='".$_SESSION['data']['nim']."'");
+													while ($r=mysqli_fetch_assoc($pengaduan)) { ?>
+                                                    <tr>
+                                                        <td><?php echo $no++; ?></td>
+                                                        <td><?php echo $r['isi_pengaduan']; ?></td>
+														<td><?php echo $r['tgl_pengaduan']; ?></td>
+														<td><?php echo $r['status']; ?></td>
+                                                        <td>
+                                                            <a class="btn blue modal-trigger" href="#more?id_pengaduan=<?php echo $r['id_pengaduan'] ?>">Detail</a> 
+                                                        </td>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------ -->
+        <!-- Modal Structure -->
+        <div id="more?id_pengaduan=<?php echo $r['id_pengaduan'] ?>" class="modal">
           <div class="modal-content">
-            <h4 class="blue darken-4-text valign center">Detail</h4>
+            <h4 class="valign center">Detail</h4>
             <div class="col s12">
-				<p>NIK : <?php echo $r['nim']; ?></p>
+				<p>NIM : <?php echo $r['nim']; ?></p>
             	<p>Dari : <?php echo $r['nama']; ?></p>
+            	<p>Petugas : <?php echo $r['nip']; ?></p>
 				<p>Tanggal Masuk : <?php echo $r['tgl_pengaduan']; ?></p>
 				<p>Tanggal Ditanggapi : <?php echo $r['tgl_respon']; ?></p>
 				<?php 
@@ -90,15 +111,27 @@
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
           </div>
         </div>
-<!-- ditanggapi -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------------ -->
 
-					</tr>
-				<?php	}
-				 ?>
-			</table>
+                                                    </tr>
+                                                        <?php  }
+                                                        ?>
+                                            </tbody>
+                                        </table>     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
 
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2021 &copy; Fakultas Teknologi Informasi - Universitas Andalas</p>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
-
-    </body>
-</html>
