@@ -40,7 +40,7 @@ if (isset($_SESSION['level'])=="admin" && !isset($_SESSION['email'])) {
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="" class='sidebar-link'>
+                        <a href="pengaduan.php" class='sidebar-link'>
                             <i class="bi bi-calendar-week"></i>
                             <span>Kelola Pengaduan</span>
                         </a>
