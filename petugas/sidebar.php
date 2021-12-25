@@ -30,7 +30,7 @@
                 </li>
                
                     <li class="sidebar-item">
-                        <a href="" class='sidebar-link'>
+                        <a href="pengaduan.php" class='sidebar-link'>
                             <i class="bi bi-calendar-week"></i>
                             <span>Pengaduan</span>
                         </a>
