@@ -1,12 +1,12 @@
 <?php 
-	session_start();
-	include '../conn/koneksi.php';
-	if(!isset($_SESSION['email'])){
-		header('location:../index.php');
-	}
-	elseif($_SESSION['data']['level'] != "admin"){
-		header('location:../index.php');
-	}
+    session_start();
+    include '../conn/koneksi.php';
+    if(!isset($_SESSION['email'])){
+        header('location:../index.php');
+    }
+    elseif($_SESSION['data']['level'] != "admin"){
+        header('location:../index.php');
+    }
  ?>
   <!DOCTYPE html>
   <html>
@@ -37,28 +37,67 @@
                 </a>
             </header>
 
+              <div class="page-heading">
+                <h3>Dashboard</h3>
+         
+
             <div class="page-heading">
-                <h3>Profile Statistics</h3>
+            <a href="#name" class="col s3"> Welcome, <span class="white-text name"><?php echo ucwords($_SESSION['data']['nama_petugas']); ?></span></a>
             </div>
+               </div>
 
             <div class="page-content">
                 <section class="row">
-                    <div class="col-12 col-lg-9">
+                    <div class="col-9 col-lg-9">
                         <div class="row">
-                            <div class="col-12">
+
+
+                            <div class="col-5">
                                 <div class="card">
-                                    <div class="card-header">
-                                        <h4>Profile Visit</h4>
+                                    <div class="card-header" style="center">
+                                        <h4>Laporan Masuk</h4>
+                                         <?php 
+                                            $query = mysqli_query($koneksi,"SELECT * FROM pengaduan WHERE status='proses'");
+                                            $jlmmember = mysqli_num_rows($query);
+                                            if($jlmmember<1){
+                                                $jlmmember=0;
+                                            }
+                                         ?>
+                                        <span class="card-title"><b class="right"><?php echo $jlmmember; ?></b></span>
+                                        <p></p>
                                     </div>
                                     <div class="card-body">
 
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-5">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Laporan Selesai</h4>
+                                         <?php 
+                                            $query = mysqli_query($koneksi,"SELECT * FROM pengaduan WHERE status='selesai'");
+                                            $jlmmember = mysqli_num_rows($query);
+                                            if($jlmmember<1){
+                                                $jlmmember=0;
+                                            }
+                                         ?>
+                                         <span class="card-title"><b class="right"><?php echo $jlmmember; ?></b></span>
+                                        <p></p>
+                                    </div>
+                                    <div class="card-body">
+
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </section>
-            </div>
+            </div> 
+
+  
 
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
