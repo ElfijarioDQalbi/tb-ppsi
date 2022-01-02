@@ -1,0 +1,11 @@
+Akun :
+
+==Login Mahasiswa==
+email : mahasiswa1@gmail.com
+pass : mahasiswa1
+==Login Admin==
+email : admin1@gmail.com
+pass : admin1
+==Login Petugas==
+email : petugas1@gmail.com
+pass : petugas1

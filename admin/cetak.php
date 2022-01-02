@@ -1,8 +1,8 @@
-<h2 style="text-align: center;">Laporan Layanan Pengaduan Masyarakat</h2>
+<h2 style="text-align: center;">Laporan Layanan Pengaduan Mahasiswa FTI</h2>
 <table border="2" style="width: 100%; height: 10%;">
 	<tr style="text-align: center;">
 		<td>No</td>
-		<td>NIK Pelapor</td>
+		<td>NIM Pelapor</td>
 		<td>Nama Pelapor</td>
 		<td>Nama Petugas</td>
 		<td>Tanggal Masuk</td>
