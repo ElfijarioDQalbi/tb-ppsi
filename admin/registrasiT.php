@@ -4,14 +4,13 @@ include('koneksi.php');
 if (isset($_POST['submit'])){
     $nim = $_POST['nim'];
     $nama = $_POST['nama'];
-    $username = $_POST['username'];
     $password = md5($_POST['password']);
     $nohp = $_POST['nohp'];
     $email = $_POST['email'];
     $alamat = $_POST['alamat'];
 
-    $query = "INSERT INTO mahasiswa (nim,nama,username,password,no_hp,email,alamat) 
-    VALUES ('$nim','$nama','$username','$password','$nohp','$email','$alamat')";
+    $query = "INSERT INTO mahasiswa (nim,nama,password,no_hp,email,alamat) 
+    VALUES ('$nim','$nama','$password','$nohp','$email','$alamat')";
     $result = mysqli_query($db,$query);
 
     if ($result > 0) {
@@ -86,12 +85,6 @@ if (isset($_POST['submit'])){
                                         <div class="form-group mb-3">
                                             <label for="nama" class="mb-1">Nama Lengkap</label>
                                             <input type="text" id="nama" class="form-control" name="nama">
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group mb-3">
-                                            <label for="username" class="mb-1">Username</label>
-                                            <input type="text" id="username" class="form-control" name="username">
                                         </div>
                                     </div>
                                     <div class="col-12">

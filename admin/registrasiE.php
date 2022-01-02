@@ -6,7 +6,6 @@ $data = mysqli_fetch_assoc($querySelect);
 if (isset($_POST['submit'])){
     $nim = $_POST['nim'];
     $nama = $_POST['nama'];
-    $username = $_POST['username'];
     $nohp = $_POST['nohp'];
     $email = $_POST['email'];
     $alamat = $_POST['alamat'];
@@ -14,7 +13,6 @@ if (isset($_POST['submit'])){
     $query = "UPDATE mahasiswa
             SET nim = '$nim', 
             nama = '$nama', 
-            username = '$username', 
             no_hp = '$nohp',
             email = '$email',
             alamat = '$alamat'
@@ -93,12 +91,6 @@ if (isset($_POST['submit'])){
                                         <div class="form-group mb-3">
                                             <label for="nama" class="mb-1">Nama Lengkap</label>
                                             <input type="text" id="nama" class="form-control" name="nama" value="<?= $data['nama']; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group mb-3">
-                                            <label for="username" class="mb-1">Username</label>
-                                            <input type="text" id="username" class="form-control" name="username" value="<?= $data['username']; ?>">
                                         </div>
                                     </div>
                                     <div class="col-12">
